@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1> Liste des publications </h1>
+    <br><br><br>
+
+    {% for post in post %}
+    <h3> <a href="/{% url 'post_detail' % post.slug }/"> {{ post.title }} </a> </h3>
+    <hr>
+    <p>{{ post.body}}</p>
+    <p>Pub date: {{ post.published}}</p>
+
+    <button> <a href="/{% url 'post_detail '% post.slug }/">Read more...</a> </button>
+    
+    {% endfor %}
+    
+</body>
+</html>
